@@ -1,0 +1,8 @@
+net\dejinn\septemberRainCore\Commands\ProfileCommand.class
+net\dejinn\septemberRainCore\CharacterData\CharacterCreator.class
+net\dejinn\septemberRainCore\FileSystem\PlayerData.class
+net\dejinn\septemberRainCore\FileSystem\FileManager.class
+net\dejinn\septemberRainCore\Main\Main.class
+net\dejinn\septemberRainCore\CharacterData\Profile.class
+net\dejinn\septemberRainCore\JavaShit\MutableInteger.class
+net\dejinn\septemberRainCore\JavaShit\SkullTexture.class

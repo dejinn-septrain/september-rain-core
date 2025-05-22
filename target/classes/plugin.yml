@@ -1,0 +1,10 @@
+name: SeptemberRainCore
+version: '1.0-SNAPSHOT'
+main: net.dejinn.septemberRainCore.Main.Main
+api-version: '1.21'
+commands:
+  profile:
+    description: Shows your roleplay profile, or opens the character creator if you don't have one.
+    usage: /profile
+    permission: septemberraincore.profile
+softdepend: [Towny]
