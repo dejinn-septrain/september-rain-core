@@ -8,9 +8,12 @@ import com.github.stefvanschie.inventoryframework.pane.PatternPane;
 import com.github.stefvanschie.inventoryframework.pane.StaticPane;
 import com.github.stefvanschie.inventoryframework.pane.util.Pattern;
 
+import com.palmergames.bukkit.towny.TownyAPI;
+import com.palmergames.bukkit.towny.object.Resident;
 import net.dejinn.septemberRainCore.FileSystem.FileManager;
 import net.dejinn.septemberRainCore.FileSystem.PlayerData;
 import net.dejinn.septemberRainCore.JavaShit.MutableInteger;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -353,5 +356,10 @@ public class CharacterCreator implements Listener {
         String newDataName = "data-" + currDate + ".yml";
         new PlayerData().SetPlayerData(p,"death_cause",deathCause.toString());
         new FileManager().MoveFile("data.yml",newDataName,File.separatorChar + "PlayerData" + File.separatorChar + p.getUniqueId(),File.separatorChar + "PlayerData" + File.separatorChar + p.getUniqueId() + File.separatorChar + "Archive");
+        if (Bukkit.getServer().getPluginManager().getPlugin("Towny") != null){
+            Resident resident = TownyAPI.getInstance().getResident(p);
+            resident.removeTown();
+            resident.removeAllFriends();
+        }
     }
 }
