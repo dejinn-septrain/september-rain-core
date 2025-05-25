@@ -14,8 +14,10 @@ public class CustomItemHandler {
 
     public void InitializeCustomItems(){
         ItemStack workstumpHead = new WorkstumpItem().createItem();
+        ItemStack researchTable = new ResearchTableItem().createItem();
 
         this.customItems.put("workstump",workstumpHead);
+        this.customItems.put("research_table",researchTable);
     }
 
     public NamespacedKey getTag(){

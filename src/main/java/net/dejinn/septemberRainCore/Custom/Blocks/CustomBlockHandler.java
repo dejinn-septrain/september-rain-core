@@ -1,6 +1,7 @@
 package net.dejinn.septemberRainCore.Custom.Blocks;
 
 import com.destroystokyo.paper.profile.PlayerProfile;
+import net.dejinn.septemberRainCore.Custom.Items.ResearchTableItem;
 import net.dejinn.septemberRainCore.Custom.Items.WorkstumpItem;
 import net.dejinn.septemberRainCore.Display.DisplayModel;
 import net.dejinn.septemberRainCore.JavaShit.SkullTexture;
@@ -23,15 +24,21 @@ public class CustomBlockHandler {
         ItemStack workstumpHead = new WorkstumpItem().createItem();
         ItemMeta workstumpMeta = workstumpHead.getItemMeta();
 
-        this.customBlockIds.put(workstumpMeta,"workstump");
+        ItemStack researchTable = new ResearchTableItem().createItem();
+        ItemMeta researchMeta = researchTable.getItemMeta();
 
+        this.customBlockIds.put(workstumpMeta,"workstump");
+        this.customBlockIds.put(researchMeta,"research_table");
 
     }
 
-    public void PlaceCustomBlock(String blockId, Location location){
+    public void PlaceCustomBlock(String blockId, Location location, Location yawLocation){
         switch (blockId){
             case "workstump":
-                new WorkstumpBlock().Place(location);
+                new WorkstumpBlock().Place(location,yawLocation);
+                break;
+            case "research_table":
+                new ResearchTableBlock().Place(location,yawLocation);
                 break;
         }
     }
@@ -44,6 +51,10 @@ public class CustomBlockHandler {
         switch (modelType){
             case "workstump":
                 new WorkstumpBlock().Break(rootEntity);
+                break;
+            case "research_table":
+                new ResearchTableBlock().Break(rootEntity);
+                break;
         }
 
     }

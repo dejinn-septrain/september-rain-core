@@ -9,17 +9,16 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class WorkstumpBlock {
-
+public class ResearchTableBlock {
     private Sound placeSound = Sound.BLOCK_WOOD_PLACE;
     private Sound breakSound = Sound.BLOCK_WOOD_BREAK;
 
     public void Place(Location location, Location yawLocation){
 
         DisplayModel newDisplay = new DisplayModel();
-        newDisplay.CreateModel("workstump",location,yawLocation);
-        newDisplay.SetInteractionWidth(1.02f);
-        newDisplay.SetInteractionHeight(1.02f);
+        newDisplay.CreateModel("research_table",location,yawLocation);
+        newDisplay.SetInteractionWidth(2f);
+        newDisplay.SetInteractionHeight(1.5f);
 
         location.getWorld().playSound(location,this.placeSound,1f,1f);
 
@@ -39,7 +38,7 @@ public class WorkstumpBlock {
 
         DisplayModel displayEntity = new DisplayModel();
         displayEntity.SetRootEntity(root);
-        displayEntity.SetModelType("workstump");
+        displayEntity.SetModelType("research_table");
         displayEntity.DeleteModel();
 
 
