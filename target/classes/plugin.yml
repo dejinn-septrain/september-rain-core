@@ -7,4 +7,9 @@ commands:
     description: Shows your roleplay profile, or opens the character creator if you don't have one.
     usage: /profile
     permission: septemberraincore.profile
-softdepend: [Towny]
+  give_custom:
+    description: devshit
+    usage: /give_custom <itemid>
+    permission: septemberraincore.give_custom
+
+softdepend: [Towny,TownyMenus]

@@ -13,12 +13,6 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class PlayerData {
-
-
-
-
-
-
     public void MakePlayerFolder(Player p){
         File playerDataFolder = new FileManager().MakeFolder("PlayerData","");
         if (playerDataFolder.exists()){
@@ -46,8 +40,9 @@ public class PlayerData {
         defaultPlayerData.put("first_name","");
         defaultPlayerData.put("last_name","");
         defaultPlayerData.put("height",1);
-        defaultPlayerData.put("research_level",0);
-        defaultPlayerData.put("research_tied_to_nation",false);
+        defaultPlayerData.put("research",0);
+        defaultPlayerData.put("tech_level",0);
+        defaultPlayerData.put("tech_tied_to_nation",false);
         defaultPlayerData.put("creation_date",currDate);
 
         File playerDataFile = new FileManager().MakeNewFile("data.yml",File.separatorChar + "PlayerData" + File.separatorChar + p.getUniqueId());

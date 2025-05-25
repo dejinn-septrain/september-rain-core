@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class CharacterCreator implements Listener {
+public class CharacterCreator {
 
     public void openCharacterCreator(Player p){
 
@@ -346,20 +346,4 @@ public class CharacterCreator implements Listener {
         return new PlayerData().CheckPlayerData(player);
     }
 
-    @EventHandler
-    void onPlayerDeath(PlayerDeathEvent e){
-        Player p = e.getPlayer();
-        String deathCause = e.getEntity().getLastDamageCause().toString();
-        Date now = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
-        String currDate = format.format(now);
-        String newDataName = "data-" + currDate + ".yml";
-        new PlayerData().SetPlayerData(p,"death_cause",deathCause.toString());
-        new FileManager().MoveFile("data.yml",newDataName,File.separatorChar + "PlayerData" + File.separatorChar + p.getUniqueId(),File.separatorChar + "PlayerData" + File.separatorChar + p.getUniqueId() + File.separatorChar + "Archive");
-        if (Bukkit.getServer().getPluginManager().getPlugin("Towny") != null){
-            Resident resident = TownyAPI.getInstance().getResident(p);
-            resident.removeTown();
-            resident.removeAllFriends();
-        }
-    }
 }

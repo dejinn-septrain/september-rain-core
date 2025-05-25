@@ -1,6 +1,7 @@
 package net.dejinn.septemberRainCore.FileSystem;
 
 import net.dejinn.septemberRainCore.Main.Main;
+import org.codehaus.plexus.util.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,5 +58,17 @@ public class FileManager {
             Main.getInstance().getLogger().warning(ex.toString());
         }
 
+    }
+
+    public void CopyFiles(String Source, String Destination){
+        File srcDir = new File(Source);
+
+        File destDir = new File(Destination);
+
+        try {
+            FileUtils.copyDirectory(srcDir, destDir);
+        } catch (IOException ex) {
+            Main.getInstance().getLogger().warning(ex.toString());
+        }
     }
 }
